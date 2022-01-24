@@ -2,18 +2,18 @@
 
 ### What it is?
 
-**Wrapper above the xhprof callgraph utils, with some simplifications**
+Wrapper above the xhprof callgraph utils, with some simplifications
 
 ### What for it?
-**Create callgraph images from xhprof file**
+Create callgraph images from xhprof file
 
 ### Why?
 
-**Because I decided that make it a faster, than find some tools for create callgraph from .xhprof file without "voodoo" stuffs**   
+Because I decided that make it a faster, than find some tools for create callgraph from .xhprof file without "voodoo" stuffs 
 
 ### How to use
 
-**step 1: make xhprof serialized file**
+step 1: make xhprof serialized file
 
 ```php
 <?php
