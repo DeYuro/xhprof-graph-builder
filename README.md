@@ -13,7 +13,7 @@ Because I decided that make it a faster, than find some tools for create callgra
 
 ### How to use
 
-step 1: make xhprof serialized file
+**step 1: make xhprof serialized file**
 
 ```php
 <?php
