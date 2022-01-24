@@ -1,0 +1,12 @@
+{
+    "name": "deyuro/xhprof-graph-builder",
+    "description": "xhprof files graph builder",
+    "autoload": {
+        "psr-4": {
+            "Application\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+    }
+}
