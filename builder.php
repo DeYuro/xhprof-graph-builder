@@ -1,7 +1,24 @@
+#!/usr/bin/env php
 <?php
+
+use Application\Builder;
 
 require __DIR__ . '/vendor/autoload.php';
 
-$val = getopt("p:");
+$shortOptions = "";
+$shortOptions .= "i:";
+$shortOptions .= "o:";
+$shortOptions .= "t:";
+$shortOptions .= "h:";
+$shortOptions .= "d:";
 
-(new \Application\Builder($val["p"]))->run();
+$longOptions =[
+    "input:",
+    "output:",
+    "type:",
+    "threshold:",
+    "description:"
+];
+$options = getopt($shortOptions,$longOptions);
+
+(new Builder())->run($options);
