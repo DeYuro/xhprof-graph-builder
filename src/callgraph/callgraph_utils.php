@@ -392,17 +392,17 @@ function xhprof_generate_dot_script($raw_data, $threshold, $source, $page,
 }
 
 
-function xhprof_render_image($filename, $type, $threshold) {
+function print_callgraph($input, $output, $type, $threshold, $description) {
 
-    $content = xhprof_get_content_by_filename($filename, $type, $threshold);
+    $content = xhprof_get_content_by_filename($input, $type, $threshold, $description);
     if (!$content) {
         exit();
     }
 
-    file_put_contents("callgraph.png", $content);
+    file_put_contents($output, $content);
 }
 
-function xhprof_get_content_by_filename($filename, $type, $threshold) {
+function xhprof_get_content_by_filename($filename, $type, $threshold, $description) {
 
     if (!file_exists($filename)) {
         throw new \Exception("Could not find file $filename");
@@ -411,9 +411,8 @@ function xhprof_get_content_by_filename($filename, $type, $threshold) {
     $xhprof = file_get_contents($filename);
     $rawData = unserialize($xhprof);
 
-    $script = xhprof_generate_dot_script($rawData, $threshold, "test_source",
-        "Test Description", "", true);
+    $script = xhprof_generate_dot_script($rawData, $threshold, "source",
+        $description, "", true);
 
-    $content = xhprof_generate_image_by_dot($script, $type);
-    return $content;
+    return xhprof_generate_image_by_dot($script, $type);
 }
